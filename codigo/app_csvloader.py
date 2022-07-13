@@ -20,11 +20,11 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
     def abrirArquivo(self):
         arq = QFileDialog.getOpenFileName(self, 'Abrir arquivo CSV', '', "Arquivos CSV (*.csv)")
         
-        #with arq:
-        df = pandas.read_csv(arq, header=None, delimiter='\t', keep_default_na=False, on_bad_lines='warn')
+        if arq:
+            df = pandas.read_csv(arq[0], header=None, delimiter='\t', keep_default_na=False, on_bad_lines='warn')
             #header = df.iloc[0]
             
-            #print(df)
+            print(df)
 
         #--------------------------------------------------------------- if arq:
             # df = pandas.read_csv(arq, header=None, delimiter=',', keep_default_na=False, on_bad_lines='skip')
