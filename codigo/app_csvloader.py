@@ -12,8 +12,6 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
         self.setupUi(self)
         self.connectSignalsSlots()
 
-        self.hasHeaders = False
-
     def connectSignalsSlots(self):
         self.actionSair.triggered.connect(self.close)
         self.actionAbrir_arquivo.triggered.connect(self.abrirArquivo)
@@ -45,8 +43,6 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
                     m = QTableWidgetItem(header[j])
                     self.tblDados.setHorizontalHeaderItem(j, m)
 
-                self.hasHeaders = True
-
             else:
                 self.tblDados.setColumnCount(len(df.columns))
                 self.tblDados.setRowCount(len(df.index))
@@ -58,8 +54,6 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
                 for j in range(self.tblDados.columnCount()):
                     m = QTableWidgetItem(str(j))
                     self.tblDados.setHorizontalHeaderItem(j, m)
-
-                self.hasHeaders = False
 
             self.tblDados.selectRow(0)
             self.tblDados.resizeColumnsToContents()

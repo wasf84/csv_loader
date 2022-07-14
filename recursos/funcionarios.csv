@@ -1,11 +1,11 @@
-id	nome	idade	siape	salário
-1	jose	43	1234	1294,00
-2	joao	56	4321	5259,00
-3	maria	23	2345	8576,00
-4	josefa	42	5432	1300,00
-5	aristides	33	3456	2349,00
-6	platão	61	6543	15256,00
-7	artemis	28	4567	3419,00
-8	antonela	31	7654	5107,00
-9	isabela	24	5678	4007,00
-10	rodrigo	37	8765	2900,00
+siape	nome	idade	salário
+1234	jose	43	1294,00
+4321	joao	56	5259,00
+2345	maria	23	8576,00
+5432	josefa	42	1300,00
+3456	aristides	33	2349,00
+6543	platão	61	15256,00
+4567	artemis	28	3419,00
+7654	antonela	31	5107,00
+5678	isabela	24	4007,00
+8765	rodrigo	37	2900,00
