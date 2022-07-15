@@ -3,7 +3,7 @@
 import os, csv, pandas
 
 from PyQt5.QtCore import QDir
-from PyQt5.QtWidgets import QFileDialog, QMainWindow, QMessageBox, QTableWidgetItem
+from PyQt5.QtWidgets import QFileDialog, QMainWindow, QMessageBox, QTableWidgetItem, QLabel
 from main_csvloader import Ui_wndwCSVLoader
 
 class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
@@ -11,6 +11,10 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
         super().__init__(parent)
         self.setupUi(self)
         self.connectSignalsSlots()
+
+        # Macetinho para mostrar informacoes na barra de status
+        self.lblInfo = QLabel(text="")
+        self.stsInformacoes.addWidget(self.lblInfo)
 
     def connectSignalsSlots(self):
         self.actionSair.triggered.connect(self.close)
@@ -58,3 +62,17 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
             self.tblDados.selectRow(0)
             self.tblDados.resizeColumnsToContents()
             self.tblDados.resizeRowsToContents()
+            self.mostraInfo(nomeArquivo=arq)
+
+    def mostraInfo(self, nomeArquivo):
+        # A barra de status tem um widget QLabel para mostrar informacoes de "path do arquivo | n de linhas | n de colunas" do grid
+
+        # Limpa a barra de status com informacoes passadas
+        self.stsInformacoes.removeWidget(self.lblInfo)
+
+        linhas = str(self.tblDados.rowCount())
+        colunas = str(self.tblDados.columnCount())
+        texto = "Arquivo: " + nomeArquivo + " | Linhas: " + linhas  + " | Colunas: " + colunas
+
+        self.lblInfo = QLabel(text = texto)
+        self.stsInformacoes.addWidget(self.lblInfo)
