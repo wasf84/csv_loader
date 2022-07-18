@@ -10,8 +10,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_wndwCSVLoader(object):
+    # ----------------------------------------------------------- #
     def setupUi(self, wndwCSVLoader):
         wndwCSVLoader.setObjectName("wndwCSVLoader")
         wndwCSVLoader.resize(1024, 768)
@@ -54,7 +54,9 @@ class Ui_wndwCSVLoader(object):
         self.retranslateUi(wndwCSVLoader)
         self.actionSair.triggered.connect(wndwCSVLoader.close) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(wndwCSVLoader)
+    # ----------------------------------------------------------- #
 
+    # ----------------------------------------------------------- #
     def retranslateUi(self, wndwCSVLoader):
         _translate = QtCore.QCoreApplication.translate
         wndwCSVLoader.setWindowTitle(_translate("wndwCSVLoader", "CSV Loader"))
@@ -65,3 +67,4 @@ class Ui_wndwCSVLoader(object):
         self.actionSair.setText(_translate("wndwCSVLoader", "Sair"))
         self.actionSair.setToolTip(_translate("wndwCSVLoader", "Encerra aplicação"))
         self.actionSair.setShortcut(_translate("wndwCSVLoader", "Ctrl+Q"))
+    # ----------------------------------------------------------- #

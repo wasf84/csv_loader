@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QFileDialog, QMainWindow, QMessageBox, QTableWidgetI
 from main_csvloader import Ui_wndwCSVLoader
 
 class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
+    # ----------------------------------------------------------- #
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
@@ -15,13 +16,17 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
         # Macetinho para mostrar informacoes na barra de status
         self.lblInfo = QLabel(text="")
         self.stsInformacoes.addWidget(self.lblInfo)
+    # ----------------------------------------------------------- #
 
+    # ----------------------------------------------------------- #
     def connectSignalsSlots(self):
         self.actionSair.triggered.connect(self.close)
         self.actionAbrir_arquivo.triggered.connect(self.abrirArquivo)
+    # ----------------------------------------------------------- #
     
+    # ----------------------------------------------------------- #
     def abrirArquivo(self):
-        arq, _ = QFileDialog.getOpenFileName(self, 'Abrir arquivo CSV', QDir.homePath(), "Arquivos CSV (*.csv)")
+        arq, _ = QFileDialog.getOpenFileName(self, 'Abrir arquivo CSV', QDir.currentPath(), "Arquivos CSV (*.csv)")
         
         if arq:
             df = pandas.read_csv(arq, header=None, delimiter='\t', keep_default_na=False, on_bad_lines='warn')
@@ -63,7 +68,9 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
             self.tblDados.resizeColumnsToContents()
             self.tblDados.resizeRowsToContents()
             self.mostraInfo(nomeArquivo=arq)
+    # ----------------------------------------------------------- #
 
+    # ----------------------------------------------------------- #
     def mostraInfo(self, nomeArquivo):
         # A barra de status tem um widget QLabel para mostrar informacoes de "path do arquivo | n de linhas | n de colunas" do grid
 
@@ -76,3 +83,4 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
 
         self.lblInfo = QLabel(text = texto)
         self.stsInformacoes.addWidget(self.lblInfo)
+    # ----------------------------------------------------------- #
