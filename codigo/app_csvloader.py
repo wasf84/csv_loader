@@ -72,7 +72,8 @@ class App_csvloader(QMainWindow, Ui_wndwCSVLoader):
 
     # ----------------------------------------------------------- #
     def mostraInfo(self, nomeArquivo):
-        # A barra de status tem um widget QLabel para mostrar informacoes de "path do arquivo | n de linhas | n de colunas" do grid
+        # A barra de status tem um widget QLabel para mostrar informacoes de:
+        #   "path do arquivo | n de linhas | n de colunas" do grid
 
         # Limpa a barra de status com informacoes passadas
         self.stsInformacoes.removeWidget(self.lblInfo)
